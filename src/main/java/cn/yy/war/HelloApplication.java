@@ -1,23 +1,28 @@
 package cn.yy.war;
 
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import cn.yy.war.entity.WarEntityFactory;
+import com.almasb.fxgl.app.GameApplication;
+import com.almasb.fxgl.app.GameSettings;
 
-import java.io.IOException;
+import static com.almasb.fxgl.dsl.FXGLForKtKt.getGameWorld;
+import static com.almasb.fxgl.dsl.FXGLForKtKt.spawn;
 
-public class HelloApplication extends Application {
-    @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+public class HelloApplication extends GameApplication {
+    public static void main(String[] args) {
+        launch(args);
     }
 
-    public static void main(String[] args) {
-        launch();
+    @Override
+    protected void initGame() {
+        getGameWorld().addEntityFactory(new WarEntityFactory());
+        // 将玩家实体增加到游戏世界。
+        spawn("player");
+    }
+
+    @Override
+    protected void initSettings(GameSettings settings) {
+        settings.setWidth(680);
+        settings.setHeight(480);
+        settings.setVersion("v1.0");
     }
 }

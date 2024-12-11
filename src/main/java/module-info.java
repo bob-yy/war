@@ -5,5 +5,7 @@ module cn.yy.war {
     requires com.almasb.fxgl.all;
 
     opens cn.yy.war to javafx.fxml;
+
     exports cn.yy.war;
+    exports cn.yy.war.entity;
 }
