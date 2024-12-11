@@ -21,8 +21,8 @@ public class HelloApplication extends GameApplication {
 
     @Override
     protected void initSettings(GameSettings settings) {
-        settings.setWidth(680);
-        settings.setHeight(480);
+        settings.setWidth(1080);
+        settings.setHeight(720);
         settings.setVersion("v1.0");
     }
 }
