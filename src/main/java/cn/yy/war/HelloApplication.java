@@ -16,6 +16,11 @@ public class HelloApplication extends GameApplication {
     }
 
     @Override
+    protected void initInput() {
+        super.initInput();
+    }
+
+    @Override
     protected void initGameVars(Map<String, Object> vars) {
         vars.put("score", 10);
     }
